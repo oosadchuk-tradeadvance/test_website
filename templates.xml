@@ -1,5 +1,5 @@
 <openerp>
-    <data>
+    <data noupdate="0">
         <template id="index">
             <t t-call="website.layout">
                 <t t-set="title">Academy</t>
@@ -14,18 +14,22 @@
                 </div>
             </t>
         </template>
+
         <template id="biography">
             <t t-call="website.layout">
                 <t t-set="title">Academy</t>
-                <div class="oe_structure"/>
                 <div class="oe_structure">
                     <div class="container">
-                        <h3><t t-esc="person.name"/></h3>
+                        <h3 t-field="person.name"/>
+                        <!--<p>Last modified: <i t-field="person.write_date"/></p>-->
+                        <!--<p>Last modified: <i t-field="person.write_date" t-field-options='{"format": "long"}'/></p>-->
+                        <p>Last modified: <i t-field="person.write_date" t-field-options='{"widget": "relative"}'/></p>
+                        <div t-field="person.biography"/>
                     </div>
                 </div>
-                <div class="oe_structure"/>
             </t>
         </template>
+
         <!-- <template id="listing"> -->
         <!--   <ul> -->
         <!--     <li t-foreach="objects" t-as="object"> -->
